@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Forking工作流Forking以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有仓库没有直接的写权限，只能够推送代码到自己的远程私有仓库，然后向公有仓库发起代码Merge Request请求，等待第三方审计Accept Merge代码。 这样的好处是避开了大家都共用中心仓库在某些情况下导致开发进程的阻塞。有效隔离开发代码、测试代码、线上代码。此外，当项目有其他不可信第三方（开源">
+<meta name="description" content="Forking工作流Fork以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有远程仓库没有直接的写权限，只能够推送代码到自己的私有远程仓库，然后向公有远程仓库发起Merge Request请求，等待第三方审计，审计通过后会通过Accept Merge操作，把开发者的私有远程仓库中代码变更合入到公有远程仓库。 Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitLab工作流协作指引">
+<meta property="og:title" content="Git工作流协作指引">
 <meta property="og:url" content="http://www.blindspoter.com/2015/07/01/gitlab-collaboration-guide/index.html">
-<meta property="og:site_name" content="盲點">
-<meta property="og:description" content="Forking工作流Forking以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有仓库没有直接的写权限，只能够推送代码到自己的远程私有仓库，然后向公有仓库发起代码Merge Request请求，等待第三方审计Accept Merge代码。 这样的好处是避开了大家都共用中心仓库在某些情况下导致开发进程的阻塞。有效隔离开发代码、测试代码、线上代码。此外，当项目有其他不可信第三方（开源">
+<meta property="og:site_name" content="盲 點">
+<meta property="og:description" content="Forking工作流Fork以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有远程仓库没有直接的写权限，只能够推送代码到自己的私有远程仓库，然后向公有远程仓库发起Merge Request请求，等待第三方审计，审计通过后会通过Accept Merge操作，把开发者的私有远程仓库中代码变更合入到公有远程仓库。 Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2017-07-18T19:11:41.000Z">
+<meta property="og:updated_time" content="2017-07-19T17:32:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitLab工作流协作指引">
-<meta name="twitter:description" content="Forking工作流Forking以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有仓库没有直接的写权限，只能够推送代码到自己的远程私有仓库，然后向公有仓库发起代码Merge Request请求，等待第三方审计Accept Merge代码。 这样的好处是避开了大家都共用中心仓库在某些情况下导致开发进程的阻塞。有效隔离开发代码、测试代码、线上代码。此外，当项目有其他不可信第三方（开源">
+<meta name="twitter:title" content="Git工作流协作指引">
+<meta name="twitter:description" content="Forking工作流Fork以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有远程仓库没有直接的写权限，只能够推送代码到自己的私有远程仓库，然后向公有远程仓库发起Merge Request请求，等待第三方审计，审计通过后会通过Accept Merge操作，把开发者的私有远程仓库中代码变更合入到公有远程仓库。 Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>GitLab工作流协作指引 | 盲點</title>
+  <title>Git工作流协作指引 | 盲 點</title>
   
 
 
@@ -173,7 +173,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">盲點</span>
+        <span class="site-title">盲 點</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -229,9 +229,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -265,7 +299,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="盲點">
+      <meta itemprop="name" content="盲 點">
     </span>
 
     
@@ -273,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GitLab工作流协作指引</h1>
+          <h1 class="post-title" itemprop="name headline">Git工作流协作指引</h1>
         
 
         <div class="post-meta">
@@ -299,9 +333,31 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/01/gitlab-collaboration-guide/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/07/01/gitlab-collaboration-guide/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2015/07/01/gitlab-collaboration-guide/" class="leancloud_visitors" data-flag-title="Git工作流协作指引">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -320,12 +376,12 @@
       
 
       
-        <h3 id="Forking工作流"><a href="#Forking工作流" class="headerlink" title="Forking工作流"></a>Forking工作流</h3><p>Forking以后，每个开发者有一个<code>公有远程仓库</code>与一个<code>私有远程仓库</code>。开发者对公有仓库没有直接的写权限，只能够推送代码到自己的远程私有仓库，然后向公有仓库发起代码<code>Merge Request</code>请求，等待第三方审计<code>Accept Merge</code>代码。</p>
-<p>这样的好处是避开了大家都共用中心仓库在某些情况下导致开发进程的阻塞。有效隔离开发代码、测试代码、线上代码。此外，当项目有其他不可信第三方（开源参与者或实习生等）参与开发时要提交代码，必须经过审核后才能合并，提高了项目代码的安全性和稳定性。</p>
-<h3 id="1-创建项目（公共远程仓库）"><a href="#1-创建项目（公共远程仓库）" class="headerlink" title="1. 创建项目（公共远程仓库）"></a>1. 创建项目（公共远程仓库）</h3><p>管理员在GitLab上创建新项目，填写项目名称，设置开发人员等。<br>管理员克隆项目到本地，初始化第一次提交，创建master分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:blindspoter/micros.git</div><div class="line">cd micros</div><div class="line">touch readme.md</div><div class="line">git add readme.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
+        <h3 id="Forking工作流"><a href="#Forking工作流" class="headerlink" title="Forking工作流"></a>Forking工作流</h3><p>Fork以后，每个开发者有一个<code>公有远程仓库</code>与一个<code>私有远程仓库</code>。开发者对<code>公有远程仓库</code>没有直接的写权限，只能够推送代码到自己的<code>私有远程仓库</code>，然后向<code>公有远程仓库</code>发起<code>Merge Request</code>请求，等待第三方审计，审计通过后会通过<code>Accept Merge</code>操作，把开发者的<code>私有远程仓库</code>中<em>代码变更</em>合入到<code>公有远程仓库</code>。</p>
+<p>Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团队（包括了不受信的第三方）提供灵活的方式来安全的协作，避开了大家都共用中心仓库在某些情况下导致开发进程的阻塞。也让这个工作流成为开源项目的理想工作流。尤其当项目有其他不可信第三方（开源参与者或实习生等）参与开发时要提交代码，必须经过审核后才能合并，提高了项目代码的安全性和稳定性。</p>
+<h3 id="1-维护者创建项目（公共远程仓库）"><a href="#1-维护者创建项目（公共远程仓库）" class="headerlink" title="1. 维护者创建项目（公共远程仓库）"></a>1. 维护者创建项目（<em>公共远程仓库</em>）</h3><p>管理员在Git仓库上创建新项目，填写项目名称，设置开发人员等，管理员克隆项目到本地，初始化第一次提交，创建master分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:blindspoter/micros.git</div><div class="line">cd micros</div><div class="line">touch readme.md</div><div class="line">git add readme.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>管理员创建<code>develop</code>分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout -b develop master</div><div class="line">git push origin develop</div></pre></td></tr></table></figure></p>
-<h3 id="2-开发者Fork项目（私有远程仓库）"><a href="#2-开发者Fork项目（私有远程仓库）" class="headerlink" title="2 .开发者Fork项目（私有远程仓库）"></a>2 .开发者Fork项目（私有远程仓库）</h3><p>项目开发者在GitLab上Fork项目作为自己<code>远程私有仓库</code>【源仓库orign】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:yourname/micros.git</div></pre></td></tr></table></figure></p>
+<h3 id="2-开发者fork项目（私有远程仓库）"><a href="#2-开发者fork项目（私有远程仓库）" class="headerlink" title="2. 开发者fork项目（私有远程仓库）"></a>2. 开发者fork项目（<em>私有远程仓库</em>）</h3><p>项目开发者在Git仓库上fork项目作为自己的服务端<code>远程私有仓库</code>【源仓库orign】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:yourname/micros.git</div></pre></td></tr></table></figure></p>
 <p>开发者将项目克隆至自己的工作电脑（<strong>本地仓库</strong>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:yourname/micros.git</div></pre></td></tr></table></figure></p>
 <p>添加<code>远程公共仓库</code>地址到本地仓库中【上游仓库upstream】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream git@github.com:blindspoter/micros.git</div></pre></td></tr></table></figure></p>
 <h3 id="3-开发者进行功能开发"><a href="#3-开发者进行功能开发" class="headerlink" title="3. 开发者进行功能开发"></a>3. 开发者进行功能开发</h3><h4 id="3-1-开发前的准备"><a href="#3-1-开发前的准备" class="headerlink" title="3.1 开发前的准备"></a>3.1 开发前的准备</h4><p>确认在本地<code>master</code>分支，并拉取上游最新的<code>master</code>代码（第一次使用新功能开发时）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git pull --rebase upstream master</div></pre></td></tr></table></figure></p>
@@ -339,11 +395,12 @@
 <h4 id="3-3-开发完成提交代码"><a href="#3-3-开发完成提交代码" class="headerlink" title="3.3 开发完成提交代码"></a>3.3 开发完成提交代码</h4><p>切到已开发完成的功能分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout feature</div></pre></td></tr></table></figure></p>
 <p>同步公共仓库的<code>develop</code>分支最新代码，有冲突的话解决冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase upstream develop</div></pre></td></tr></table></figure></p>
 <p>推送本地的功能分支到远程私有仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin feature</div></pre></td></tr></table></figure></p>
-<h4 id="3-4-开发完成提交代码"><a href="#3-4-开发完成提交代码" class="headerlink" title="3.4 开发完成提交代码"></a>3.4 开发完成提交代码</h4><p>提交MR（<code>Merge Request</code>）到公共仓库的<code>develop</code>分支<br>打开gitlab，进入自己的私有仓库，点击Merge Rquest新建MR，注意选择分支:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yourname/feature  ---&gt;  micros/develop</div></pre></td></tr></table></figure></p>
+<h4 id="3-4-开发完成提交代码"><a href="#3-4-开发完成提交代码" class="headerlink" title="3.4 开发完成提交代码"></a>3.4 开发完成提交代码</h4><p>提交MR（<code>Merge Request</code>）到公共仓库的<code>develop</code>分支<br>打开git仓库页面，进入自己的私有仓库，点击<strong>+</strong><code>Merge Rquest</code>新建MR，注意选择源分支与目的分支:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yourname/feature  ---&gt;  micros/develop</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>不论何种用意和目的，<code>feature</code>分支只能跟<code>develop</code>分支合并。</p>
 </blockquote>
 <h4 id="3-5-通知相关人员审计你的代码"><a href="#3-5-通知相关人员审计你的代码" class="headerlink" title="3.5 通知相关人员审计你的代码"></a>3.5 通知相关人员审计你的代码</h4><p>此时，cooperator，leader，code reviewer可以查看代码变更，提出意见，以及最终<code>Accept Merge</code>到上游仓库的<code>develop</code>分支。</p>
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="http://www.jianshu.com/p/91acec85c3a4" target="_blank" rel="external">深入理解学习Git工作流</a></p>
 
       
     </div>
@@ -358,6 +415,27 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="Kevin Chen WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Kevin Chen Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -397,6 +475,13 @@
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -504,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forking工作流"><span class="nav-number">1.</span> <span class="nav-text">Forking工作流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建项目（公共远程仓库）"><span class="nav-number">2.</span> <span class="nav-text">1. 创建项目（公共远程仓库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-开发者Fork项目（私有远程仓库）"><span class="nav-number">3.</span> <span class="nav-text">2 .开发者Fork项目（私有远程仓库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-开发者进行功能开发"><span class="nav-number">4.</span> <span class="nav-text">3. 开发者进行功能开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-开发前的准备"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 开发前的准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-正式的开发"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 正式的开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-开发完成提交代码"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 开发完成提交代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-开发完成提交代码"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 开发完成提交代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-通知相关人员审计你的代码"><span class="nav-number">4.5.</span> <span class="nav-text">3.5 通知相关人员审计你的代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forking工作流"><span class="nav-number">1.</span> <span class="nav-text">Forking工作流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-维护者创建项目（公共远程仓库）"><span class="nav-number">2.</span> <span class="nav-text">1. 维护者创建项目（公共远程仓库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-开发者fork项目（私有远程仓库）"><span class="nav-number">3.</span> <span class="nav-text">2. 开发者fork项目（私有远程仓库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-开发者进行功能开发"><span class="nav-number">4.</span> <span class="nav-text">3. 开发者进行功能开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-开发前的准备"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 开发前的准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-正式的开发"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 正式的开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-开发完成提交代码"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 开发完成提交代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-开发完成提交代码"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 开发完成提交代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-通知相关人员审计你的代码"><span class="nav-number">4.5.</span> <span class="nav-text">3.5 通知相关人员审计你的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文献"><span class="nav-number">4.6.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -526,7 +611,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -636,6 +721,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.blindspoter.com/2015/07/01/gitlab-collaboration-guide/';
+          this.page.identifier = '2015/07/01/gitlab-collaboration-guide/';
+          this.page.title = 'Git工作流协作指引';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -660,11 +765,435 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("clI9TXjP9d5Kve4AVqq9Y9WN-gzGzoHsz", "dYNB2Pxs11BnJYhHOCs3WVJY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

@@ -297,7 +297,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2015/07/01/gitlab-collaboration-guide/">
+    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2015/10/20/git_tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kevin Chen">
@@ -316,7 +316,152 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/07/01/gitlab-collaboration-guide/" itemprop="url">Git工作流协作指引</a></h1>
+                <a class="post-title-link" href="/2015/10/20/git_tips/" itemprop="url">Git TIPS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-10-20T13:15:00+08:00">
+                2015-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/20/git_tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/10/20/git_tips/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/10/20/git_tips/" class="leancloud_visitors" data-flag-title="Git TIPS">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="多个commit合并"><a href="#多个commit合并" class="headerlink" title="多个commit合并"></a>多个commit合并</h3><p>查看历史版本号列表，然后复制要合并的多个commit的前一个{版本号}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log</div></pre></td></tr></table></figure></p>
+<p>rebase操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase -i &#123;版本号&#125;</div></pre></td></tr></table></figure></p>
+<p>弹出版本修改窗口，从第二行起，将前缀<code>pick</code>更改为<em>s</em>(<code>squash</code>)</p>
+<p>修改弹出的commit message窗口，删除多余的message，或者更改message</p>
+<p>将合并强制提交，-f(force)表示强制push<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin &#123;your-branch-name&#125; -f</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>在MAC环境下，建议安装git log历史查看工具, <code>brew install tig</code></p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/10/20/git_tips/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2015/07/01/git-collaboration-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="盲  點">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/07/01/git-collaboration-guide/" itemprop="url">Git工作流协作指引</a></h1>
         
 
         <div class="post-meta">
@@ -347,9 +492,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/07/01/gitlab-collaboration-guide/#comments" itemprop="discussionUrl">
+                <a href="/2015/07/01/git-collaboration-guide/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2015/07/01/gitlab-collaboration-guide/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2015/07/01/git-collaboration-guide/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -357,7 +502,7 @@
 
           
           
-             <span id="/2015/07/01/gitlab-collaboration-guide/" class="leancloud_visitors" data-flag-title="Git工作流协作指引">
+             <span id="/2015/07/01/git-collaboration-guide/" class="leancloud_visitors" data-flag-title="Git工作流协作指引">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,7 +536,7 @@
 <h3 id="1-维护者创建项目（公共远程仓库）"><a href="#1-维护者创建项目（公共远程仓库）" class="headerlink" title="1. 维护者创建项目（公共远程仓库）"></a>1. 维护者创建项目（<em>公共远程仓库</em>）</h3><p>管理员在Git仓库上创建新项目，填写项目名称，设置开发人员等，管理员克隆项目到本地，初始化第一次提交，创建master分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:blindspoter/micros.git</div><div class="line">cd micros</div><div class="line">touch readme.md</div><div class="line">git add readme.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/07/01/gitlab-collaboration-guide/#more" rel="contents">
+            <a class="btn" href="/2015/07/01/git-collaboration-guide/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -474,7 +619,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>

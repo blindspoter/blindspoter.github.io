@@ -93,13 +93,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="盲  點">
-<meta property="og:url" content="http://www.blindspoter.com/archives/2015/10/index.html">
+<meta name="description" content="背景之前接触一个项目，采用tornado框架，开发一个数据库中间件，功能是一个容器控制器，容器内业务管理，监控等功能，做为守护进程部署在几千个公司的业务容器上。 公司目前要求所有程序部署必须打包成rpm包安装，公司有自己的rpm私有源。但这对python程序就比较坑，所有pip依赖包，都需要人肉打包成rpm上传到公司私有源。部署时根据rpm依赖自动拉取依赖包。并且安装在全局！！没有采用虚拟环境，禁">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎样将python程序及其依赖打包成rpm包部署">
+<meta property="og:url" content="http://www.blindspoter.com/2016/11/01/rpm-package-for-python/index.html">
 <meta property="og:site_name" content="盲  點">
+<meta property="og:description" content="背景之前接触一个项目，采用tornado框架，开发一个数据库中间件，功能是一个容器控制器，容器内业务管理，监控等功能，做为守护进程部署在几千个公司的业务容器上。 公司目前要求所有程序部署必须打包成rpm包安装，公司有自己的rpm私有源。但这对python程序就比较坑，所有pip依赖包，都需要人肉打包成rpm上传到公司私有源。部署时根据rpm依赖自动拉取依赖包。并且安装在全局！！没有采用虚拟环境，禁">
 <meta property="og:locale" content="zh-hk">
+<meta property="og:updated_time" content="2017-07-20T09:59:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盲  點">
+<meta name="twitter:title" content="怎样将python程序及其依赖打包成rpm包部署">
+<meta name="twitter:description" content="背景之前接触一个项目，采用tornado框架，开发一个数据库中间件，功能是一个容器控制器，容器内业务管理，监控等功能，做为守护进程部署在几千个公司的业务容器上。 公司目前要求所有程序部署必须打包成rpm包安装，公司有自己的rpm私有源。但这对python程序就比较坑，所有pip依赖包，都需要人肉打包成rpm上传到公司私有源。部署时根据rpm依赖自动拉取依赖包。并且安装在全局！！没有采用虚拟环境，禁">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://www.blindspoter.com/archives/2015/10/"/>
+  <link rel="canonical" href="http://www.blindspoter.com/2016/11/01/rpm-package-for-python/"/>
 
 
 
 
 
-  <title>歸檔 | 盲  點</title>
+  <title>怎样将python程序及其依赖打包成rpm包部署 | 盲  點</title>
   
 
 
@@ -167,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -285,66 +289,219 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共有 3 篇文章。 繼續努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2016/11/01/rpm-package-for-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="盲  點">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">怎样将python程序及其依赖打包成rpm包部署</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-11-01T14:05:00+08:00">
+                2016-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/01/rpm-package-for-python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/11/01/rpm-package-for-python/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/11/01/rpm-package-for-python/" class="leancloud_visitors" data-flag-title="怎样将python程序及其依赖打包成rpm包部署">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>之前接触一个项目，采用tornado框架，开发一个数据库中间件，功能是一个容器控制器，容器内业务管理，监控等功能，做为守护进程部署在几千个公司的业务容器上。</p>
+<p>公司目前要求所有程序部署必须打包成rpm包安装，公司有自己的rpm私有源。但这对python程序就比较坑，所有pip依赖包，都需要人肉打包成rpm上传到公司私有源。部署时根据rpm依赖自动拉取依赖包。并且安装在全局！！没有采用虚拟环境，禁用pip!!这对python开发来说简直反人类啊！</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>首先把所有项目依赖下载下来，项目本身也通过setup.py打包成tar包。</p>
+<p>在本地，新建一个build/usr文件夹，作为pip的安装目标路径，然后使用pip安装（需要指定源地址为本地路径）你的项目，将会把你的项目包及其依赖一股脑到安装到本地build/usr文件夹。</p>
+<p>安装完毕，你会看到类似build/usr/lib/python2.7/site-pakges/…这样的结构。</p>
+<p>然后开始写rpm打包脚本，指定build为根目录，最后使用rpmbuild工具打包，也可以使用jekins.</p>
+<p>将最终的rpm包通过yum install 安装到目标机器，逛逛逛！项目跑起来了！不用直接再一一安装依赖。</p>
+<p>这样的好处是，本地开发不用担心依赖包有没有现成的rpm源码包，愉快的使用pip即可。部署的时候，把以上流程写成一个自动化脚本，还是比较爽快的。</p>
+<p>注意的地方：<br>写rpm打包脚本的时候，有一个after_remove.sh脚本，需要写卸载文件，此时，如果将你的项目源码卸载没关系，但你的项目依赖可别完全一股脑卸载了，有可能影响目标机器上的其他项目…..</p>
+<blockquote>
+<p><em>后续补充详细步骤</em></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="Kevin Chen WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Kevin Chen Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2015/10/20/git_tips/" itemprop="url">
-              
-                <span itemprop="name">Git TIPS</span>
-              
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-10-20T13:15:00+08:00"
-              content="2015-10-20" >
-          10-20
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/20/git_tips/" rel="next" title="Git TIPS">
+                <i class="fa fa-chevron-left"></i> Git TIPS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  </section>
-
-  
-
+      
+    </div>
+  </div>
 
 
           </div>
@@ -352,6 +509,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -372,8 +540,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -437,6 +614,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">2.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -546,11 +739,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -569,6 +760,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.blindspoter.com/2016/11/01/rpm-package-for-python/';
+          this.page.identifier = '2016/11/01/rpm-package-for-python/';
+          this.page.title = '怎样将python程序及其依赖打包成rpm包部署';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

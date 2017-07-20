@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[怎样将python程序及其依赖打包成rpm包部署]]></title>
+    <url>%2F2016%2F11%2F01%2Frpm-package-for-python%2F</url>
+    <content type="text"><![CDATA[背景之前接触一个项目，采用tornado框架，开发一个数据库中间件，功能是一个容器控制器，容器内业务管理，监控等功能，做为守护进程部署在几千个公司的业务容器上。 公司目前要求所有程序部署必须打包成rpm包安装，公司有自己的rpm私有源。但这对python程序就比较坑，所有pip依赖包，都需要人肉打包成rpm上传到公司私有源。部署时根据rpm依赖自动拉取依赖包。并且安装在全局！！没有采用虚拟环境，禁用pip!!这对python开发来说简直反人类啊！ 解决办法首先把所有项目依赖下载下来，项目本身也通过setup.py打包成tar包。 在本地，新建一个build/usr文件夹，作为pip的安装目标路径，然后使用pip安装（需要指定源地址为本地路径）你的项目，将会把你的项目包及其依赖一股脑到安装到本地build/usr文件夹。 安装完毕，你会看到类似build/usr/lib/python2.7/site-pakges/…这样的结构。 然后开始写rpm打包脚本，指定build为根目录，最后使用rpmbuild工具打包，也可以使用jekins. 将最终的rpm包通过yum install 安装到目标机器，逛逛逛！项目跑起来了！不用直接再一一安装依赖。 这样的好处是，本地开发不用担心依赖包有没有现成的rpm源码包，愉快的使用pip即可。部署的时候，把以上流程写成一个自动化脚本，还是比较爽快的。 注意的地方：写rpm打包脚本的时候，有一个after_remove.sh脚本，需要写卸载文件，此时，如果将你的项目源码卸载没关系，但你的项目依赖可别完全一股脑卸载了，有可能影响目标机器上的其他项目….. 后续补充详细步骤]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Git TIPS]]></title>
     <url>%2F2015%2F10%2F20%2Fgit_tips%2F</url>
     <content type="text"><![CDATA[多个commit合并查看历史版本号列表，然后复制要合并的多个commit的前一个{版本号}1$ git log rebase操作1$ git rebase -i &#123;版本号&#125; 弹出版本修改窗口，从第二行起，将前缀pick更改为s(squash) 修改弹出的commit message窗口，删除多余的message，或者更改message 将合并强制提交，-f(force)表示强制push1$ git push origin &#123;your-branch-name&#125; -f 在MAC环境下，建议安装git log历史查看工具, brew install tig 代码回滚1$ git revert -m [要撤销的那条merge线的编号，从1开始计算] [merge前的版本号] 会创建一个新的的commit来抵消对应的merge操作。1$ git revert [上一次revert撤销merge时提交的commit的版本号] 重新创建一个commit，代码回归到原来的状态。 修改commit信息1234$ git rebase -i HEAD~1(git rebase -i --root针对第一次提交)$ git commit --amend --author=&apos;name &lt;name@163.com&gt;&apos;$ git commit --amend --date=&#123;data -R&#125;$ git rebase --continue HEAD~后的数字代表自顶而下第几次提交]]></content>

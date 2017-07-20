@@ -297,6 +297,151 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2016/11/01/rpm-package-for-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="盲  點">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/01/rpm-package-for-python/" itemprop="url">怎样将python程序及其依赖打包成rpm包部署</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-11-01T14:05:00+08:00">
+                2016-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/01/rpm-package-for-python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/11/01/rpm-package-for-python/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/11/01/rpm-package-for-python/" class="leancloud_visitors" data-flag-title="怎样将python程序及其依赖打包成rpm包部署">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>之前接触一个项目，采用tornado框架，开发一个数据库中间件，功能是一个容器控制器，容器内业务管理，监控等功能，做为守护进程部署在几千个公司的业务容器上。</p>
+<p>公司目前要求所有程序部署必须打包成rpm包安装，公司有自己的rpm私有源。但这对python程序就比较坑，所有pip依赖包，都需要人肉打包成rpm上传到公司私有源。部署时根据rpm依赖自动拉取依赖包。并且安装在全局！！没有采用虚拟环境，禁用pip!!这对python开发来说简直反人类啊！</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>首先把所有项目依赖下载下来，项目本身也通过setup.py打包成tar包。</p>
+<p>在本地，新建一个build/usr文件夹，作为pip的安装目标路径，然后使用pip安装（需要指定源地址为本地路径）你的项目，将会把你的项目包及其依赖一股脑到安装到本地build/usr文件夹。</p>
+<p>安装完毕，你会看到类似build/usr/lib/python2.7/site-pakges/…这样的结构。</p>
+<p>然后开始写rpm打包脚本，指定build为根目录，最后使用rpmbuild工具打包，也可以使用jekins.</p>
+<p>将最终的rpm包通过yum install 安装到目标机器，逛逛逛！项目跑起来了！不用直接再一一安装依赖。</p>
+<p>这样的好处是，本地开发不用担心依赖包有没有现成的rpm源码包，愉快的使用pip即可。部署的时候，把以上流程写成一个自动化脚本，还是比较爽快的。</p>
+<p>注意的地方：<br>写rpm打包脚本的时候，有一个after_remove.sh脚本，需要写卸载文件，此时，如果将你的项目源码卸载没关系，但你的项目依赖可别完全一股脑卸载了，有可能影响目标机器上的其他项目…..</p>
+<blockquote>
+<p><em>后续补充详细步骤</em></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2015/10/20/git_tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -619,7 +764,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>

@@ -93,13 +93,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="盲  點">
-<meta property="og:url" content="http://www.blindspoter.com/archives/index.html">
+<meta name="description" content="我们的使用一个服务的时候，经常会面临endpoint这个词，曾经引起了我的困惑，究竟什么是endpoint，我们就以Flask框架的源码入手，做一个深入的分析吧😆。 首先维基百科中的解释：  Endpoint, the entry point to a service, a process, or a queue or topic destination in service-oriented">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask endpoint 剖析">
+<meta property="og:url" content="http://www.blindspoter.com/2016/07/29/understanding-flask-endpoint/index.html">
 <meta property="og:site_name" content="盲  點">
+<meta property="og:description" content="我们的使用一个服务的时候，经常会面临endpoint这个词，曾经引起了我的困惑，究竟什么是endpoint，我们就以Flask框架的源码入手，做一个深入的分析吧😆。 首先维基百科中的解释：  Endpoint, the entry point to a service, a process, or a queue or topic destination in service-oriented">
 <meta property="og:locale" content="zh-hk">
+<meta property="og:updated_time" content="2017-07-29T16:18:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盲  點">
+<meta name="twitter:title" content="Flask endpoint 剖析">
+<meta name="twitter:description" content="我们的使用一个服务的时候，经常会面临endpoint这个词，曾经引起了我的困惑，究竟什么是endpoint，我们就以Flask框架的源码入手，做一个深入的分析吧😆。 首先维基百科中的解释：  Endpoint, the entry point to a service, a process, or a queue or topic destination in service-oriented">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://www.blindspoter.com/archives/"/>
+  <link rel="canonical" href="http://www.blindspoter.com/2016/07/29/understanding-flask-endpoint/"/>
 
 
 
 
 
-  <title>歸檔 | 盲  點</title>
+  <title>Flask endpoint 剖析 | 盲  點</title>
   
 
 
@@ -167,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -285,182 +289,216 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共有 4 篇文章。 繼續努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/01/rpm-package-for-python/" itemprop="url">
-              
-                <span itemprop="name">怎样将python程序及其依赖打包成rpm包部署</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-01T14:05:00+08:00"
-              content="2016-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/29/understanding-flask-endpoint/" itemprop="url">
-              
-                <span itemprop="name">Flask endpoint 剖析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-29T01:01:33+08:00"
-              content="2016-07-29" >
-          07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/10/20/git_tips/" itemprop="url">
-              
-                <span itemprop="name">Git TIPS</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-10-20T13:15:00+08:00"
-              content="2015-10-20" >
-          10-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/07/01/git-collaboration-guide/" itemprop="url">
-              
-                <span itemprop="name">Git工作流协作指引</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-07-01T23:20:00+08:00"
-              content="2015-07-01" >
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2016/07/29/understanding-flask-endpoint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="盲  點">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Flask endpoint 剖析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-07-29T01:01:33+08:00">
+                2016-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/29/understanding-flask-endpoint/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/07/29/understanding-flask-endpoint/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/07/29/understanding-flask-endpoint/" class="leancloud_visitors" data-flag-title="Flask endpoint 剖析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我们的使用一个服务的时候，经常会面临<code>endpoint</code>这个词，曾经引起了我的困惑，究竟什么是<code>endpoint</code>，我们就以<code>Flask</code>框架的源码入手，做一个深入的分析吧😆。</p>
+<p>首先维基百科中的解释：</p>
+<blockquote>
+<p>Endpoint, the entry point to a service, a process, or a queue or topic destination in service-oriented architecture</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="Kevin Chen WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Kevin Chen Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/20/git_tips/" rel="next" title="Git TIPS">
+                <i class="fa fa-chevron-left"></i> Git TIPS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/01/rpm-package-for-python/" rel="prev" title="怎样将python程序及其依赖打包成rpm包部署">
+                怎样将python程序及其依赖打包成rpm包部署 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -468,6 +506,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -662,11 +711,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -685,6 +732,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.blindspoter.com/2016/07/29/understanding-flask-endpoint/';
+          this.page.identifier = '2016/07/29/understanding-flask-endpoint/';
+          this.page.title = 'Flask endpoint 剖析';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="盲  點">
 <meta property="og:description" content="多个commit合并查看历史版本号列表，然后复制要合并的多个commit的前一个{版本号}1$ git log rebase操作1$ git rebase -i &amp;#123;版本号&amp;#125; 弹出版本修改窗口，从第二行起，将前缀pick更改为s(squash) 修改弹出的commit message窗口，删除多余的message，或者更改message 将合并强制提交，-f(force)表示强制">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2017-07-20T08:31:11.000Z">
+<meta property="og:updated_time" content="2017-08-02T18:20:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git TIPS">
 <meta name="twitter:description" content="多个commit合并查看历史版本号列表，然后复制要合并的多个commit的前一个{版本号}1$ git log rebase操作1$ git rebase -i &amp;#123;版本号&amp;#125; 弹出版本修改窗口，从第二行起，将前缀pick更改为s(squash) 修改弹出的commit message窗口，删除多余的message，或者更改message 将合并强制提交，-f(force)表示强制">
@@ -401,6 +401,7 @@
 <blockquote>
 <p>HEAD~后的数字代表自顶而下第几次提交</p>
 </blockquote>
+<h3 id="分支替换"><a href="#分支替换" class="headerlink" title="分支替换"></a>分支替换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git reset --hard develop       //先将本地的master分支重置成develop</div><div class="line">git push origin master --force //再推送到远程仓库</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -468,8 +469,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/01/rpm-package-for-python/" rel="prev" title="怎样将python程序及其依赖打包成rpm包部署">
-                怎样将python程序及其依赖打包成rpm包部署 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/29/understanding-flask-endpoint/" rel="prev" title="Flask endpoint 剖析">
+                Flask endpoint 剖析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -573,7 +574,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -632,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多个commit合并"><span class="nav-number">1.</span> <span class="nav-text">多个commit合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码回滚"><span class="nav-number">2.</span> <span class="nav-text">代码回滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改commit信息"><span class="nav-number">3.</span> <span class="nav-text">修改commit信息</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多个commit合并"><span class="nav-number">1.</span> <span class="nav-text">多个commit合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码回滚"><span class="nav-number">2.</span> <span class="nav-text">代码回滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改commit信息"><span class="nav-number">3.</span> <span class="nav-text">修改commit信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支替换"><span class="nav-number">4.</span> <span class="nav-text">分支替换</span></a></li></ol></div>
             
 
           </div>

@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Forking工作流Fork以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有远程仓库没有直接的写权限，只能够推送代码到自己的私有远程仓库，然后向公有远程仓库发起Merge Request请求，等待第三方审计，审计通过后会通过Accept Merge操作，把开发者的私有远程仓库中代码变更合入到公有远程仓库。 Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团">
+<meta name="description" content="😁😁">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git工作流协作指引">
-<meta property="og:url" content="http://www.blindspoter.com/2015/07/01/git-collaboration-guide/index.html">
+<meta property="og:title" content="Flask context 剖析">
+<meta property="og:url" content="http://www.blindspoter.com/2016/07/29/understanding-flask-context/index.html">
 <meta property="og:site_name" content="盲  點">
-<meta property="og:description" content="Forking工作流Fork以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有远程仓库没有直接的写权限，只能够推送代码到自己的私有远程仓库，然后向公有远程仓库发起Merge Request请求，等待第三方审计，审计通过后会通过Accept Merge操作，把开发者的私有远程仓库中代码变更合入到公有远程仓库。 Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团">
+<meta property="og:description" content="😁😁">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2017-07-19T17:32:11.000Z">
+<meta property="og:updated_time" content="2017-08-03T14:07:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git工作流协作指引">
-<meta name="twitter:description" content="Forking工作流Fork以后，每个开发者有一个公有远程仓库与一个私有远程仓库。开发者对公有远程仓库没有直接的写权限，只能够推送代码到自己的私有远程仓库，然后向公有远程仓库发起Merge Request请求，等待第三方审计，审计通过后会通过Accept Merge操作，把开发者的私有远程仓库中代码变更合入到公有远程仓库。 Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团">
+<meta name="twitter:title" content="Flask context 剖析">
+<meta name="twitter:description" content="😁😁">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://www.blindspoter.com/2015/07/01/git-collaboration-guide/"/>
+  <link rel="canonical" href="http://www.blindspoter.com/2016/07/29/understanding-flask-context/"/>
 
 
 
 
 
-  <title>Git工作流协作指引 | 盲  點</title>
+  <title>Flask context 剖析 | 盲  點</title>
   
 
 
@@ -299,7 +299,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2015/07/01/git-collaboration-guide/">
+    <link itemprop="mainEntityOfPage" href="http://www.blindspoter.com/2016/07/29/understanding-flask-context/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kevin Chen">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git工作流协作指引</h1>
+          <h1 class="post-title" itemprop="name headline">Flask context 剖析</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-07-01T23:20:00+08:00">
-                2015-07-01
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-07-29T01:01:33+08:00">
+                2016-07-29
               </time>
             
 
@@ -347,9 +347,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/07/01/git-collaboration-guide/#comments" itemprop="discussionUrl">
+                <a href="/2016/07/29/understanding-flask-context/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2015/07/01/git-collaboration-guide/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2016/07/29/understanding-flask-context/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -357,7 +357,7 @@
 
           
           
-             <span id="/2015/07/01/git-collaboration-guide/" class="leancloud_visitors" data-flag-title="Git工作流协作指引">
+             <span id="/2016/07/29/understanding-flask-context/" class="leancloud_visitors" data-flag-title="Flask context 剖析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -385,31 +385,7 @@
       
 
       
-        <h3 id="Forking工作流"><a href="#Forking工作流" class="headerlink" title="Forking工作流"></a>Forking工作流</h3><p>Fork以后，每个开发者有一个<code>公有远程仓库</code>与一个<code>私有远程仓库</code>。开发者对<code>公有远程仓库</code>没有直接的写权限，只能够推送代码到自己的<code>私有远程仓库</code>，然后向<code>公有远程仓库</code>发起<code>Merge Request</code>请求，等待第三方审计，审计通过后会通过<code>Accept Merge</code>操作，把开发者的<code>私有远程仓库</code>中<em>代码变更</em>合入到<code>公有远程仓库</code>。</p>
-<p>Forking工作流的优势是，提供一个分布式的工作流，能为大型、自发性的团队（包括了不受信的第三方）提供灵活的方式来安全的协作，避开了大家都共用中心仓库在某些情况下导致开发进程的阻塞。也让这个工作流成为开源项目的理想工作流。尤其当项目有其他不可信第三方（开源参与者或实习生等）参与开发时要提交代码，必须经过审核后才能合并，提高了项目代码的安全性和稳定性。</p>
-<h3 id="1-维护者创建项目（公共远程仓库）"><a href="#1-维护者创建项目（公共远程仓库）" class="headerlink" title="1. 维护者创建项目（公共远程仓库）"></a>1. 维护者创建项目（<em>公共远程仓库</em>）</h3><p>管理员在Git仓库上创建新项目，填写项目名称，设置开发人员等，管理员克隆项目到本地，初始化第一次提交，创建master分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:blindspoter/micros.git</div><div class="line">cd micros</div><div class="line">touch readme.md</div><div class="line">git add readme.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>管理员创建<code>develop</code>分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout -b develop master</div><div class="line">git push origin develop</div></pre></td></tr></table></figure></p>
-<h3 id="2-开发者fork项目（私有远程仓库）"><a href="#2-开发者fork项目（私有远程仓库）" class="headerlink" title="2. 开发者fork项目（私有远程仓库）"></a>2. 开发者fork项目（<em>私有远程仓库</em>）</h3><p>项目开发者在Git仓库上fork项目作为自己的服务端<code>远程私有仓库</code>【源仓库orign】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:yourname/micros.git</div></pre></td></tr></table></figure></p>
-<p>开发者将项目克隆至自己的工作电脑（<strong>本地仓库</strong>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:yourname/micros.git</div></pre></td></tr></table></figure></p>
-<p>添加<code>远程公共仓库</code>地址到本地仓库中【上游仓库upstream】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream git@github.com:blindspoter/micros.git</div></pre></td></tr></table></figure></p>
-<h3 id="3-开发者进行功能开发"><a href="#3-开发者进行功能开发" class="headerlink" title="3. 开发者进行功能开发"></a>3. 开发者进行功能开发</h3><h4 id="3-1-开发前的准备"><a href="#3-1-开发前的准备" class="headerlink" title="3.1 开发前的准备"></a>3.1 开发前的准备</h4><p>确认在本地<code>master</code>分支，并拉取上游最新的<code>master</code>代码（第一次使用新功能开发时）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git pull --rebase upstream master</div></pre></td></tr></table></figure></p>
-<p>从<code>master</code>切出新的<code>develop</code>分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b develop</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注：因为是第一次用，所以本地仓库还没有<code>develop</code>分支，需创建</p>
-</blockquote>
-<h4 id="3-2-正式的开发"><a href="#3-2-正式的开发" class="headerlink" title="3.2 正式的开发"></a>3.2 正式的开发</h4><p>本地的<code>develop</code>分支与上游（公共仓库）的<code>develop</code>分支同步<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout develop</div><div class="line">git pull --rebase upstream develop</div></pre></td></tr></table></figure></p>
-<p>基于<code>develop</code>切出新的功能分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b feature</div></pre></td></tr></table></figure></p>
-<p><strong>一定牢记</strong>每次写码前在当前功能分支同步上游<code>develop</code>分支的最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout feature</div><div class="line">git pull --rebase upstream develop</div></pre></td></tr></table></figure></p>
-<h4 id="3-3-开发完成提交代码"><a href="#3-3-开发完成提交代码" class="headerlink" title="3.3 开发完成提交代码"></a>3.3 开发完成提交代码</h4><p>切到已开发完成的功能分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout feature</div></pre></td></tr></table></figure></p>
-<p>同步公共仓库的<code>develop</code>分支最新代码，有冲突的话解决冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase upstream develop</div></pre></td></tr></table></figure></p>
-<p>推送本地的功能分支到远程私有仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin feature</div></pre></td></tr></table></figure></p>
-<h4 id="3-4-开发完成提交代码"><a href="#3-4-开发完成提交代码" class="headerlink" title="3.4 开发完成提交代码"></a>3.4 开发完成提交代码</h4><p>提交MR（<code>Merge Request</code>）到公共仓库的<code>develop</code>分支<br>打开git仓库页面，进入自己的私有仓库，点击<strong>+</strong><code>Merge Rquest</code>新建MR，注意选择源分支与目的分支:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yourname/feature  ---&gt;  micros/develop</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>不论何种用意和目的，<code>feature</code>分支只能跟<code>develop</code>分支合并。</p>
-</blockquote>
-<h4 id="3-5-通知相关人员审计你的代码"><a href="#3-5-通知相关人员审计你的代码" class="headerlink" title="3.5 通知相关人员审计你的代码"></a>3.5 通知相关人员审计你的代码</h4><p>此时，cooperator，leader，code reviewer可以查看代码变更，提出意见，以及最终<code>Accept Merge</code>到上游仓库的<code>develop</code>分支。</p>
-<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="http://www.jianshu.com/p/91acec85c3a4" target="_blank" rel="external">深入理解学习Git工作流</a></p>
+        <p>😁😁</p>
 
       
     </div>
@@ -467,14 +443,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/29/understanding-flask-endpoint/" rel="next" title="Flask endpoint 剖析">
+                <i class="fa fa-chevron-left"></i> Flask endpoint 剖析
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/20/git_tips/" rel="prev" title="Git TIPS">
-                Git TIPS <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/01/rpm-package-for-python/" rel="prev" title="怎样将python程序及其依赖打包成rpm包部署">
+                怎样将python程序及其依赖打包成rpm包部署 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,17 +533,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -627,22 +598,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forking工作流"><span class="nav-number">1.</span> <span class="nav-text">Forking工作流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-维护者创建项目（公共远程仓库）"><span class="nav-number">2.</span> <span class="nav-text">1. 维护者创建项目（公共远程仓库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-开发者fork项目（私有远程仓库）"><span class="nav-number">3.</span> <span class="nav-text">2. 开发者fork项目（私有远程仓库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-开发者进行功能开发"><span class="nav-number">4.</span> <span class="nav-text">3. 开发者进行功能开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-开发前的准备"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 开发前的准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-正式的开发"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 正式的开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-开发完成提交代码"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 开发完成提交代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-开发完成提交代码"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 开发完成提交代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-通知相关人员审计你的代码"><span class="nav-number">4.5.</span> <span class="nav-text">3.5 通知相关人员审计你的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文献"><span class="nav-number">4.6.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -776,9 +731,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.blindspoter.com/2015/07/01/git-collaboration-guide/';
-          this.page.identifier = '2015/07/01/git-collaboration-guide/';
-          this.page.title = 'Git工作流协作指引';
+          this.page.url = 'http://www.blindspoter.com/2016/07/29/understanding-flask-context/';
+          this.page.identifier = '2016/07/29/understanding-flask-context/';
+          this.page.title = 'Flask context 剖析';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
